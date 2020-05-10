@@ -1,9 +1,6 @@
 # ece651-spr20-g3-risc
 
-![pipeline](https://gitlab.oit.duke.edu/zjc4/ece651-spr20-g3-risc/badges/master/pipeline.svg)
-![coverage](https://gitlab.oit.duke.edu/zjc4/ece651-spr20-g3-risc/badges/master/coverage.svg?job=test)
-
-Group 3 RISC Project
+Group 3 RISC Project Evolution2
 
 Instructions for running GUI implementation
 
@@ -23,4 +20,4 @@ Starts the gui for the client
 
 [Detailed issue tracking](https://docs.google.com/document/d/1j75eWC3iny3EWGDm9YbUtcIzfGZLLNuehOXTCtnfDaI/edit)
 
-[UML Diagram](https://docs.google.com/drawings/d/1y8CAN1fAxeAx6zgHyzvR8XrUbPgJHyjkEW35hsDjXTw/edit)
+[UML Diagram](https://docs.google.com/drawings/d/1uyfwYvaME-5g1ORROtVW1jiSBJr1fwXiW_d_NRxCUqU/edit)
