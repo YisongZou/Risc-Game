@@ -1,9 +1,17 @@
 # ece651-spr20-g3-risc
 
-![pipeline](https://gitlab.oit.duke.edu/zjc4/ece651-spr20-g3-risc/badges/master/pipeline.svg)
-![coverage](https://gitlab.oit.duke.edu/zjc4/ece651-spr20-g3-risc/badges/master/coverage.svg?job=test)
+Group 3 RISC Project Evolution1
 
-Group 3 RISC Project
+
+Instructions for running the implementation
+
+First enter the main project directory
+`cd risc`
+Start the server
+`gradle run-server`
+Starts the client
+`gradle run-client`
+
 
 
 ## Coverage
