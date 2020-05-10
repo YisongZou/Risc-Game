@@ -1,0 +1,37 @@
++-------------------------+-----------------+------------+-----------+-----------+---------+
+|       Class Name        | Total Coverage% | Cvrd Stmts | Ttl Stmts | Cvrdd Brs | Ttl Brs |
++-------------------------+-----------------+------------+-----------+-----------+---------+
+|   server.Upgrade_Tech   |        0        |     0      |     3     |     0     |    0    |
+|       server.App        |        0        |     0      |    60     |     0     |    6    |
+|   server.Upgrade_Unit   |        0        |     0      |     6     |     0     |    0    |
+|  server.ServerHandler   |        0        |     0      |    108    |     0     |   12    |
+|    server.Use_Cloak     |        0        |     0      |     5     |     0     |    0    |
+|  server.Research_Cloak  |        0        |     0      |     4     |     0     |    0    |
+|      server.Server      |       13        |     6      |    44     |     0     |    2    |
+|      server.Parser      |       59        |    143     |    222    |    16     |   46    |
+|    server.ServerTest    |       78        |     22     |    28     |     0     |    0    |
+|     server.RiscTest     |       88        |    136     |    154    |     0     |    0    |
+|      server.Attack      |       93        |     84     |    88     |    32     |   36    |
+|       server.Move       |       100       |     14     |    14     |     0     |    0    |
+| server.ExecutorFactory  |       100       |     0      |     0     |     0     |    0    |
+|   server.NuclearBomb    |       100       |     5      |     5     |     2     |    2    |
+|   server.AssignUnits    |       100       |     6      |     6     |     0     |    0    |
+|   server.Initializer    |       100       |     0      |     0     |     0     |    0    |
+|server.InitializerFactory|       100       |     0      |     0     |     0     |    0    |
+|      server.Virus       |       100       |     13     |    13     |     2     |    2    |
+|     server.Executor     |       100       |     0      |     0     |     0     |    0    |
+|     server.Move_Spy     |       100       |     5      |     5     |     0     |    0    |
+|   server.Upgrade_Spy    |       100       |     4      |     4     |     0     |    0    |
+| server.AssignTerritory  |       100       |     4      |     4     |     0     |    0    |
+|   server.NuclearTest    |       100       |     15     |    15     |     0     |    0    |
+|     server.AppTest      |       100       |     0      |     0     |     0     |    0    |
+|    server.VirusTest     |       100       |     29     |    29     |     0     |    0    |
+| projectRisc.GameMapTest |       100       |     46     |    46     |     0     |    0    |
++-------------------------+-----------------+------------+-----------+-----------+---------+
+|         Totals          |       60        |    532     |    863    |    52     |   106   |
++-------------------------+-----------------+------------+-----------+-----------+---------+
+
+
+Remove Colors From All Buffers
+
+Fundamental finished at Tue Apr 28 12:04:34
