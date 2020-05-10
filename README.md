@@ -1,9 +1,4 @@
-# ece651-spr20-g3-risc
-
-![pipeline](https://gitlab.oit.duke.edu/zjc4/ece651-spr20-g3-risc/badges/master/pipeline.svg)
-![coverage](https://gitlab.oit.duke.edu/zjc4/ece651-spr20-g3-risc/badges/master/coverage.svg?job=test)
-
-Group 3 RISC Project
+ECE651 Group 3 RISC Project Evolution3
 
 Instructions for running GUI implementation
 
@@ -16,9 +11,6 @@ Start the server, you can run multiple of these
 Starts the gui for the client
 `gradle run-client`
 
-*Evolution 3 is master branch*
-*Evolution1 is inside Evolution1 branch*
-*Evolution2 is inside Evolution2 branch*
 
 ## Coverage
 [Detailed coverage](https://zjc4.pages.oit.duke.edu/ece651-spr20-g3-risc/dashboard.html)
