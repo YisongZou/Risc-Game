@@ -155,7 +155,6 @@ public class Attack implements Executor {
       else {//Attacker wins the attack
         System.out.println("Attacker wins the whole attack");
         gmap.getTerritory(dstTerritory).setPlayerName(gmap.getTerritory(srcTerritory).getTroopOwner());
-        gmap.getTerritory(dstTerritory).setCloakTurn(-1);
         for (int i = 0; i < atkLevels.size();++i) {
           gmap.getTerritory(dstTerritory).addUnit(i, atkLevels.get(i));
         }

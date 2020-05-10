@@ -6,8 +6,39 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class App {
+
+  /*
   public static void main(String[] args) {
-    MainController mainController = new MainController();
-    mainController.start();
+    Scanner in = new Scanner(System.in);
+    String hostMasterIP;
+    while (true) {
+      try{      
+        System.out.println("Please type in HostMaster IP:");
+        hostMasterIP = in.nextLine();
+        if(hostMasterIP.length() < 1){
+          throw new Exception("HostMaster IP cannot be empty. Please try again");
+        }
+        break;
+      }
+      catch(Exception e){
+        System.out.println(e.getMessage());
+      }
+    }
+    
+    try{
+      ClientHost ch = new ClientHost(hostMasterIP, 8888, in);   // hostmaster port num is 8888
+      ch.proccess();
+      in.close();
+    }
+    catch (Exception e){
+      e.printStackTrace();
+      System.out.println("Error occured: " + e.getMessage());
+    }
+  }
+  */
+
+  
+  public static void main(String[] args) {
+    ClientController clientController = new ClientController();
   }
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Message implements java.io.Serializable {
   private String content; // content stores information
-  private String type;//AssignTerritory, Move, or Attack or AssignUnits or Upgrade_Unit or Upgrade_Tech or Research_Cloak or Use_Cloak
+  private String type;//AssignTerritory, Move, or Attack or AssignUnits or Upgrade_Unit or Upgrade_Tech
   private String playerName;
   private String messageType;//Assign or Execute
   private String srcTerritory;

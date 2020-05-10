@@ -19,22 +19,24 @@ public class Map3p implements MapState {
     myMap.setNumGroups(3);
     
     myMap.connectTerritory("Narnia","Midkemia");
+    myMap.connectTerritory("Narnia","Elantris");
     
     myMap.connectTerritory("Midkemia","Oz");
     myMap.connectTerritory("Midkemia","Scadrial");
+    myMap.connectTerritory("Midkemia","Elantris");
     
     myMap.connectTerritory("Oz","Gondor");
+    myMap.connectTerritory("Mordor","Gondor");
     myMap.connectTerritory("Mordor","Hogwarts");
-    myMap.connectTerritory("Mordor","Oz");
-    myMap.connectTerritory("Mordor","Midkemia");        
-    
+    myMap.connectTerritory("Mordor","Oz");    
+    myMap.connectTerritory("Roshar","Hogwarts");
+  
+    myMap.connectTerritory("Scadrial","Oz");
     myMap.connectTerritory("Scadrial","Hogwarts");                
     myMap.connectTerritory("Scadrial","Mordor");    
     myMap.connectTerritory("Scadrial","Elantris");
-    myMap.connectTerritory("Scadrial","Roshar");
-    
-    myMap.connectTerritory("Roshar","Elantris");
-    myMap.connectTerritory("Roshar","Hogwarts");    
+    myMap.connectTerritory("Scadrial","Roshar");    
+    myMap.connectTerritory("Roshar","Elantris");      
     
 			
 	}

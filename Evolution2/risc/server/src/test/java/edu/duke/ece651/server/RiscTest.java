@@ -148,19 +148,7 @@ public class RiscTest {
     action0.action();
 
     System.out.println(server.getParser().promptGenerator(m));
-    Message m3 = new Message();
-    m3.setType("Upgrade_Spy");
-    m3.setPlayerName("Green");
-    m3.setDestTerritory("Elantris");
-    Executor myaction = execFactory.create(m3, server.getParser().getMap());
-    myaction.action();
-    Message m4 = new Message();
-    m4.setType("Move_Spy");
-    m4.setSrcTerritory("Elantris");
-    m4.setDestTerritory("Midkemia");
-    m4.setPlayerName("Green");
-    Executor myaction2 = execFactory.create(m4, server.getParser().getMap());
-    myaction2.action();
+
     //server.getParser().parseMessage(m);
     //System.out.println(server.getParser().promptGenerator(m2));
     //System.out.println(server.getParser().initialPrompt());

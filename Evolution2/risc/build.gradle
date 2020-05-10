@@ -6,20 +6,7 @@
  */
 plugins {
     id 'com.bmuschko.clover' version '2.2.3'
-    id 'org.openjfx.javafxplugin' version '0.0.8'
-    // https://mvnrepository.com/artifact/org.assertj/assertj-swing
-    
 }
-repositories{
-    mavenCentral()
-}
-
-
-javafx {
-    version = "14"
-    modules = [ 'javafx.controls', 'javafx.base', 'javafx.graphics' ]
-}
-
 subprojects{
     apply plugin: "java"
     apply plugin: "com.bmuschko.clover"
@@ -33,7 +20,8 @@ subprojects{
         testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.1'
         clover 'org.openclover:clover:4.3.1'
         testCompile "org.mockito:mockito-core:2.+"
-        testCompile "org.assertj:assertj-core:3.11.1" 
+        
+        // compile "org.jgrapht:jgrapht-core:0.9.1"
         compile "org.jgrapht:jgrapht-core:1.4.0"
         
     }
@@ -80,19 +68,15 @@ task resolveDependencies {
    }
 }
 
-project (':server'){
-    dependencies {
-        implementation project(':shared')
-        implementation project(':client')
-        implementation project(':hostmaster')        
-    }
-}
-
-
 // Project specific stuff
 project (':shared'){
 }
-
+project (':server'){
+    dependencies {
+        implementation project(':shared')
+        implementation project(':client')        
+    }
+}
 project (':client'){
     dependencies {
         implementation project(':shared')

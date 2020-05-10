@@ -24,65 +24,6 @@ public class ExecutorFactory {
   public ExecutorFactory() {
     creation = new HashMap<String, ExecutorMaker>();
 
-
-    creation.put("Research_Cloak", (String playername,
-                            String srcterritoryname,
-                            String dstterritoryname,
-                            Integer unitnum,
-                            GameMap gamemap,
-                            String attacktype,
-                            Integer level,
-                            ArrayList<Integer> attackLevels
-                            ) -> {
-                   return new Research_Cloak(playername,
-                                        gamemap
-                                     );
-                 });
-
-     creation.put("Use_Cloak", (String playername,
-                            String srcterritoryname,
-                            String dstterritoryname,
-                            Integer unitnum,
-                            GameMap gamemap,
-                            String attacktype,
-                            Integer level,
-                            ArrayList<Integer> attackLevels
-                            ) -> {
-                   return new Use_Cloak(playername,
-                                     dstterritoryname,
-                                     gamemap
-                                     );
-                 });
-
-    creation.put("Virus", (String playername,
-                            String srcterritoryname,
-                           String dstterritoryname,
-                           Integer unitnum,
-                           GameMap gamemap,
-                           String attacktype,
-                           Integer level,
-                           ArrayList<Integer> attackLevels
-                           ) -> {
-                   return new Virus(playername,
-                                    gamemap
-                                    );
-                 });
-
-    creation.put("Nuclear", (String playername,
-                            String srcterritoryname,
-                           String dstterritoryname,
-                           Integer unitnum,
-                           GameMap gamemap,
-                           String attacktype,
-                           Integer level,
-                           ArrayList<Integer> attackLevels
-                           ) -> {
-                   return new NuclearBomb(playername,
-                                    gamemap
-                                    );
-                 });
-    
-    
     creation.put("Attack", (String playername,
                             String srcterritoryname,
                             String dstterritoryname,
@@ -118,35 +59,6 @@ public class ExecutorFactory {
                                    unitnum,
                                    gamemap,
                                    level);
-                 });
-    
-    creation.put("Move_Spy", (String playername,
-                              String srcterritoryname,
-                              String dstterritoryname,
-                              Integer unitnum,
-                              GameMap gamemap,
-                              String attacktype,
-                              Integer level,
-                              ArrayList<Integer> attackLevels
-                              ) -> {
-                   return new Move_Spy(playername,
-                                       srcterritoryname,
-                                       dstterritoryname,
-                                       gamemap);
-                 });
-    
-    creation.put("Upgrade_Spy", (String playername,
-                              String srcterritoryname,
-                              String dstterritoryname,
-                              Integer unitnum,
-                              GameMap gamemap,
-                              String attacktype,
-                              Integer level,
-                              ArrayList<Integer> attackLevels
-                              ) -> {
-                   return new Upgrade_Spy(playername,
-                                          dstterritoryname,
-                                          gamemap);
                  });
     
     creation.put("Upgrade_Unit", (String playername,

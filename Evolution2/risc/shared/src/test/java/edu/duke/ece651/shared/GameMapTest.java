@@ -3,7 +3,6 @@ package edu.duke.ece651.shared;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -130,7 +129,7 @@ public class GameMapTest {
     gmap.findTerritory("Elantris").setPlayerName("Red");
     
     assertEquals(3,gmap.getNumGroups());
-    assertEquals(0, gmap.getEnemyNeighbors(gmap.findTerritory("Elantris"),"Red").size() );
+    assertEquals(2, gmap.getEnemyNeighbors(gmap.findTerritory("Elantris"),"Red").size() );
     
     gmap.setTerritoryGroupPlayer(0, "Green");
     gmap.setTerritoryGroupPlayer(1, "Green");
@@ -251,25 +250,6 @@ public class GameMapTest {
     assertEquals(gmap.getTerritory("Oz").getUnit(1).getNumUnits(), 3);
     assertEquals(gmap.upgradeUnit("Green", "Oz", 1, 2), false);
     assertEquals(gmap.upgradeUnit("Green", "Oz", 0, 1), true);
-  }
-  @Test
-  public void spy_test() {
-    GameMap gmap = new GameMap();
-    Spy spy1 = new Spy();
-    Spy spy2 = new Spy();
-    HashMap<String, Spy> spymp = new HashMap<String, Spy>();
-    gmap.setSpyMap(spymp);
-    assertEquals(true, gmap.getSpyMap().isEmpty());
-    gmap.getSpyMap().put("ply1", spy1);
-    gmap.getSpyMap().put("ply2", spy2);
-    assertEquals(spy1,gmap.getSpy("ply1"));
-    Territory terr1 = new Territory("Oz");
-    gmap.addTerritory(terr1);
-    assertEquals(false, gmap.upgradeSpy("ply1", "Oz"));
-    gmap.getTerritory("Oz").addUnit(1, 10);
-    assertEquals(true, gmap.upgradeSpy("ply1", "Oz"));
-    assertEquals(1, gmap.getSpyNum("ply1", "Oz"));
-    assertEquals(0, gmap.getSpyNum("ply1", "wonderland"));
   }
 
  }

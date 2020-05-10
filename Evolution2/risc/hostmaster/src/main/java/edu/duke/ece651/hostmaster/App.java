@@ -5,10 +5,6 @@ package edu.duke.ece651.hostmaster;
 
 public class App {
     public static void main(String[] args) {
-
-
-      
-      /* normal start */
       int hmPort = 8888;
       try {
         HostMaster hm = new HostMaster(hmPort);

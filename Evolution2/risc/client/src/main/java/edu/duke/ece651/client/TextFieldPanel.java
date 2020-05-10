@@ -1,48 +1,61 @@
 package edu.duke.ece651.client;
 
 
-
+import java.awt.Panel;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
-import javax.swing.JLabel;
+
 import javax.swing.JButton;
-import javax.swing.JLayeredPane;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 
-public class TextFieldPanel extends PromptPanel{
+public class TextFieldPanel {
+  private int x;
+  private int y;
+  private String panelString;
+
   private int w;
   private int h;
 
-
+  // Strings to be displayed
+  private String promptString;
   private ArrayList<String> textFields;
+
   private HashMap<String, JTextField> fields;
   
+  Panel panel;
+  ActionListener listener;
 
   public TextFieldPanel(int x, int y,String panelString,
                       String promptString,
                       ArrayList<String> textFields,
                       ActionListener listener){
-    super(x, y, panelString, promptString, null, listener);
+    this.x = x;
+    this.y = y;
     
+    this.panelString = panelString;
+    this.promptString = promptString;
+
     this.textFields = textFields;
 
-    this.w = 600;
+    this.w = 280;
     this.h = 750;
+    
+    this.listener = listener;
 
     this.fields = new HashMap<>();
   }
-  
   public void generatePanel(){
-    int promptHeight = 200;
+    int promptHeight = 400;
     int buttonHeight = 30;
     generatePanel(promptHeight, buttonHeight);
   }
   
 
   public void generatePanel(int promptHeight, int buttonHeight){
-    panel = new JLayeredPane();
+    panel = new Panel();
     panel.setBounds(this.x, this.y, this.w, this.h);
     panel.setLayout(null);
 
@@ -63,6 +76,7 @@ public class TextFieldPanel extends PromptPanel{
       panel.add(field);
       this.fields.put(s, field);
       i += buttonHeight;
+
       
     }
     
@@ -70,7 +84,10 @@ public class TextFieldPanel extends PromptPanel{
     button.setBounds(0, i,this.w,buttonHeight);
     button.setActionCommand(String.format("%s,%s",this.panelString,"Ok"));
     button.addActionListener(this.listener);
-    panel.add(button);    
+    panel.add(button);
+
+
+    
   }
 
   public HashMap<String, JTextField> getFieldsMap(){
@@ -89,6 +106,9 @@ public class TextFieldPanel extends PromptPanel{
   }
   
 
+  public Panel getPanel(){
+    return this.panel;
+  }
 
   
 }

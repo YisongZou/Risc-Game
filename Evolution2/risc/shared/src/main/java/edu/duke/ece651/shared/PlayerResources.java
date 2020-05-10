@@ -65,14 +65,12 @@ public class PlayerResources implements java.io.Serializable {
     Integer leftFoodResource = foodResource.get(playerName);
 
     // for test
-    /*
     System.out.println("**************");
     System.out.println("playernme: " + playerName);
     System.out.println("playerName is null: " + Boolean.toString(playerName == null));
     System.out.println("leftFoodResource is null: " + Boolean.toString(leftFoodResource == null));
     System.out.println("foodresource is null: " + Boolean.toString(foodresource == null));
     System.out.println("**************");
-    */
     
     if (leftFoodResource < foodresource) {
       return false;
@@ -102,8 +100,6 @@ public class PlayerResources implements java.io.Serializable {
   */
   public boolean consumeTech(String playerName, Integer techresource) {
     Integer leftTechResource = techResource.get(playerName);
-    System.out.println("leftTechResource: " + leftTechResource);
-    System.out.println("techresource: " + techresource);
     if (leftTechResource < techresource) {
       return false;
     }

@@ -1,21 +1,45 @@
 package edu.duke.ece651.client;
 
-
+import java.awt.Panel;
 import java.util.ArrayList;
-import javax.swing.JLayeredPane;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import java.awt.event.ActionListener;
 
 
-public class ButtonsPanel extends PromptPanel {
+public class ButtonsPanel {
+  private int x;
+  private int y;
+  private String panelString;
+
+  private int w;
+  private int h;
+
+  // Strings to be displayed
+  private String promptString;
+  private ArrayList<String> promptButtons;
+  
+  Panel panel;
+  ActionListener listener;
   
   public ButtonsPanel(int x, int y,String panelString,
                       String promptString,
                       ArrayList<String> promptButtons,
                       ActionListener listener){
-    super(x, y, panelString, promptString, promptButtons, listener);
+    this.x = x;
+    this.y = y;
+    
+    this.panelString = panelString;
+    this.promptString = promptString;
+
+    this.promptButtons = promptButtons;
+
+    this.w = 400;
+    this.h = 700;
+    
+    this.listener = listener;
   }
 
   public void generatePanel(){
@@ -25,7 +49,7 @@ public class ButtonsPanel extends PromptPanel {
   }
   
   public void generatePanel(int promptHeight, int buttonHeight){
-    panel = new JLayeredPane();
+    panel = new Panel();
     panel.setBounds(this.x, this.y, this.w, this.h);
     panel.setLayout(null);
 
@@ -34,7 +58,7 @@ public class ButtonsPanel extends PromptPanel {
     panel.add(nameLabel);
     
     int i = 0;
-    
+
     for (String s: promptButtons){
       JButton b = new JButton(s);
       b.setBounds(0, promptHeight+buttonHeight*(i+1), this.w,buttonHeight);
@@ -43,6 +67,10 @@ public class ButtonsPanel extends PromptPanel {
       panel.add(b);
       i++;
     }
+  }
+
+  public Panel getPanel(){
+    return this.panel;
   }
   
 }

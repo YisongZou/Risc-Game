@@ -1,13 +1,24 @@
 package edu.duke.ece651.shared;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.jgrapht.Graph;
 import org.jgrapht.GraphPath;
 import org.jgrapht.Graphs;
 import org.jgrapht.alg.shortestpath.AllDirectedPaths;
 import org.jgrapht.graph.DefaultEdge;
+
+import org.jgrapht.graph.SimpleDirectedGraph;
+
+import org.jgrapht.graph.SimpleGraph;
+// import org.jgrapht.alg.DijkstraShortestPath;
+//import org.jgrapht.alg.AllDirectedPaths;
+
+import org.jgrapht.graph.SimpleGraph;
+//import org.jgrapht.alg.DijkstraShortestPath;
+//import org.jgrapht.alg.AllDirectedPaths;
 import org.jgrapht.graph.SimpleDirectedGraph;
 
 public class GameMap implements java.io.Serializable {
@@ -16,161 +27,43 @@ public class GameMap implements java.io.Serializable {
   private ArrayList<String> playerNames;
   private int numGroups;
   private PlayerResources ply_resource;
-  private HashMap<String, Boolean> hasCloak;
-  private HashMap<String, HashMap<String, String>> FogInfo;
-  private HashMap<String,Spy> spyMap;
+  
   //this records the food/tech recourse of each player
   // private Map<String, Integer> foodResource;
   //private Map<String, Integer> techResource;
   //private Map<String, Integer> techLevel;
   //public static final Integer MAX_TECH = 6;
-
-   public HashMap<String,Spy> getSpyMap() {
-     return this.spyMap;
-  }
-
-  public void setSpyMap(HashMap<String,Spy> temp) {
-    this.spyMap = temp;
-  }
-
-  public void setFogInfo(HashMap<String, HashMap<String, String>> temp) {
-    this.FogInfo = temp;
-  }
-
-  public HashMap<String, Boolean> getHasCloak() {
-    return this.hasCloak;
-  }
-  
-  public void setHasCloak(HashMap<String, Boolean> temp) {
-    this.hasCloak = temp;
-  }
-  
-  public void setPlayerResource(PlayerResources temp) {
-    this.ply_resource = temp;
-  }
-  
-  
-  public HashMap<String, HashMap<String, String>> getFogInfo() {
-    return this.FogInfo;
-  }
-
-  public String getVisibility(String playerName, String territoryName){
-    return this.FogInfo.get(playerName).get(territoryName);
-  }
-
-  public Spy getSpy(String playername) {
-    return spyMap.get(playername);
-  }
-
-  //upgrade one level1 unit to spy
-  public boolean upgradeSpy(String playername, String Territory_name){
-    Territory terr = getTerritory(Territory_name);
-    if (terr.removeUnit(1, 1) == false) {
-      return false;
-    }
-    Spy myspy = getSpy(playername);
-    myspy.addSpy(Territory_name);
-    return true;
-  }
-
-  //init the hashmap in spy hashmap
-  public void init_spies(ArrayList<String> names){    
-    for(String name : names){
-      spyMap.put(name, new Spy());
-    }
-  }
-
-  //get spy number in terrtory
-  public Integer getSpyNum(String playername, String territoryname) {
-    Spy my_spy = getSpy(playername);
-    return my_spy.getSpies(territoryname);
-    
-  }
-  
   public PlayerResources getPly_resource(){
     return ply_resource;
   }
   
   public GameMap() {
-    this.hasCloak = new HashMap<String, Boolean>();
     mapGraph = new SimpleDirectedGraph<>(DefaultEdge.class);
     playerNames = new ArrayList<String>();
-    spyMap = new HashMap<String, Spy>();
   }
 
   public void add_player(String name) {
     playerNames.add(name);
   }
 
-  public boolean hasCloak(String playerName) {
-    return this.hasCloak.get(playerName);
-  }
-
-  public void researchCloak(String playerName) {
-    this.hasCloak.replace(playerName, true);
-  }
-
-  public void updateMap(Territory oldTerr, Territory newTerr){
-    oldTerr.setPlayerName(newTerr.getPlayerName());
-    oldTerr.setUnit(newTerr.getUnit());
-    oldTerr.setTroopOwner(newTerr.getTroopOwner());
-    oldTerr.setCloakTurn(newTerr.getCloakTurn());
-    oldTerr.setAllUnits(newTerr.getAllUnits());
-  }
-  
-   public void init_ply_resource(){
+  public void init_ply_resource(){
     this.ply_resource = new PlayerResources(this.playerNames);
-    for (String name : this.playerNames) {
-      this.hasCloak.put(name, false);
-    }
-    //Init FogInfo to set every Territory to "Never" been to
-    this.FogInfo = new HashMap<String, HashMap<String, String>>();
-    for (String name : this.playerNames) {
-      HashMap<String, String> Info = new HashMap<String, String>();
-      ArrayList<String> Terrs =  this.getTerritoryNames();
-      for(String Terr: Terrs){
-        Info.put(Terr, "Never");
-      }
-      this.FogInfo.put(name, Info);
-    }
-    init_spies(this.playerNames);
 
     // for test
-    System.out.println("*****INITIALIZING*********");
+    System.out.println("**************");
     for(String plyn : this.playerNames) {
       System.out.println(plyn);
     }
     System.out.println("**************");    
   }
   
-  
   public void init_ply_resource(ArrayList<String> names){
     this.ply_resource = new PlayerResources(names);
-    //Init the hasCloak by the way
-    for (String name : names) {
-      this.hasCloak.put(name, false);
-    }
-    
-    //Init FogInfo to set every Territory to "Never" been to
-    this.FogInfo = new HashMap<String, HashMap<String, String>>();
-    for (String name : names) {
-      HashMap<String, String> Info = new HashMap<String, String>();
-      ArrayList<String> Terrs =  this.getTerritoryNames();
-      for(String Terr: Terrs){
-        Info.put(Terr, "Never");
-      }
-      this.FogInfo.put(name, Info);
-      }
-      if (!names.isEmpty()) {
-     init_spies(names);
-       }
   }
 
   public GameMap(int playerNumber){
-    this.hasCloak = new HashMap<String, Boolean>();
     mapGraph = new SimpleDirectedGraph<>(DefaultEdge.class);
-    playerNames = new ArrayList<String>();
-    spyMap = new HashMap<String, Spy>();
+    playerNames = new ArrayList<String>();    
     Context context = new Context();
     // Used for debugging,there are three groups and
     // they have all been assigned to its given player    
@@ -308,8 +201,7 @@ public class GameMap implements java.io.Serializable {
   }
   
   /*
-    Get the cost between two territories
-    returns 0 if these are uninitialized
+    Get the cost between two territoryes
     @param a territory source  
     @param b territory dest  
     @return int representing cost  
@@ -317,22 +209,16 @@ public class GameMap implements java.io.Serializable {
   public int getCostBetweenTerritories(Territory a, Territory b){
     int cost = a.getSize();
     GraphPath<Territory, DefaultEdge> g = getPath(a, b);
-
-    
-    if (g != null){
-      List<DefaultEdge> gEdges = g.getEdgeList();      
-      for (DefaultEdge edge : gEdges) {
-        Territory target = this.mapGraph.getEdgeTarget(edge);
-        cost = cost + target.getSize();
-      }
+    for (DefaultEdge edge:  g.getEdgeList()){
+      Territory target = this.mapGraph.getEdgeTarget(edge);
+      cost = cost + target.getSize();
     }
-    
     return cost;
   }  
     
   
   /*
-    Get unclaimd groupids
+    Get unclaimed groupids
     @returns ArrayList<Integer> of unclaimed territories
   */
 
@@ -439,7 +325,7 @@ public class GameMap implements java.io.Serializable {
     Getter method for getting graph of the map
     @returns the graphmap object
   */
-  public SimpleDirectedGraph <Territory, DefaultEdge> getMapGraph() {
+  public Graph<Territory, DefaultEdge> getMapGraph() {
     return this.mapGraph;
   }
 
@@ -566,7 +452,7 @@ public class GameMap implements java.io.Serializable {
     }
     return true;
   }
-  /*
+    /*
     Method for add tech for all players each round.
     @call the addTech function inside PlayerRsources 
   */
@@ -637,9 +523,5 @@ public class GameMap implements java.io.Serializable {
       result.add(t.getTerritoryName());
     }
     return result;
-  }
-
-  public void setMapGraph(SimpleDirectedGraph<Territory, DefaultEdge> mapGraph) {
-    this.mapGraph = mapGraph;
   }
 }

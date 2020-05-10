@@ -11,40 +11,11 @@ public class Territory implements java.io.Serializable {
   private int groupId;
   private String troopOwner;
   private int size;
-  private Integer CloakTurns;
+
   
   private ArrayList<Unit> allUnits;
   private Integer foodProduction;
   private Integer techProduction;
-
-  public void setAllUnits( ArrayList<Unit> temp) {
-    this.allUnits = temp;
-  }
-
-  public void initCloakTurn() {
-    this.CloakTurns = -1;
-  }
-
-  public void setCloakTurn(Integer num) {
-    this.CloakTurns = num;
-  }
-
-  public Integer getCloakTurn() {
-    return this.CloakTurns;
-  }
-
-  //Return true if there is CloakTurns remaining
-  public boolean consumeCloakTurn() {
-    if (this.CloakTurns > 0) {
-      this.CloakTurns--;
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
-
-  
 
   //initialize helper for arraylist<units>
   public void init_unitlist() {
@@ -69,7 +40,6 @@ public class Territory implements java.io.Serializable {
     this.foodProduction = 50;
     this.techProduction = 50;
     init_unitlist();
-    this.initCloakTurn();
   }
   
   /*
@@ -83,7 +53,6 @@ public class Territory implements java.io.Serializable {
     this.foodProduction = 50;
     this.techProduction = 50;
     init_unitlist();
-    this.initCloakTurn();
   }
 
   /*
@@ -97,7 +66,6 @@ public class Territory implements java.io.Serializable {
     this.foodProduction = 50;
     this.techProduction = 50;
     init_unitlist();
-    this.initCloakTurn();
   }
   
 
@@ -113,7 +81,6 @@ public class Territory implements java.io.Serializable {
     this.foodProduction = 50;
     this.techProduction = 50;
     init_unitlist();
-    this.initCloakTurn();
   }  
 
   /*

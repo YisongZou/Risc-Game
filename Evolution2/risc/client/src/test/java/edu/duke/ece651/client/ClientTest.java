@@ -17,6 +17,11 @@ public class ClientTest {
   
   // @Test
   public void testPlayer() throws Exception {
+    System.setProperty("java.awt.headless", "true");    
+    File currentDirFile = new File("");
+    String helper = currentDirFile.getAbsolutePath();
+    InputStream inputstream = new FileInputStream(helper + "/resources/test.txt");    
+    Client client = new Client("Green", inputstream, new GameMap(1));
 
     /*
     Player p1 = new Player("p1");
@@ -37,6 +42,14 @@ public class ClientTest {
   
   // @Test
   public void testInitilization() throws Exception {
+    
+    System.setProperty("java.awt.headless", "true");        
+    File currentDirFile = new File("");
+    String helper = currentDirFile.getAbsolutePath();
+    InputStream inputstream = new FileInputStream(helper + "/resources/test.txt");    
+    Client client = new Client("Green", inputstream,new GameMap(3)); // empty game map
+    // assert that all territory groups are uninitialized
+    assertEquals(3, client.getPlayer().getGmap().getUnclaimedGroupIds().size());
     // client.initializationTurn();
   }
 }

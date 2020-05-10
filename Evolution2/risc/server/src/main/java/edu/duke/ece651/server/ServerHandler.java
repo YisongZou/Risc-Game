@@ -149,49 +149,9 @@ public class ServerHandler extends Thread {
         }
       }
       else {
-         System.out.println(Thread.currentThread().getName() + ": BEFORE NOTIFYALL()");
+        //  System.out.println(Thread.currentThread().getName() + ": BEFORE NOTIFYALL()");
         if (isInitial) {
           pars.getMap().init_ply_resource();
-    //Update the FogInfo field inside map
-    HashMap<String, HashMap<String, String>> FogInfo = new HashMap<String, HashMap<String, String>>();
-    FogInfo = pars.getMap().getFogInfo();
-    
-    
-    System.out.println("---------------------------");
-    //For test only
-    for(String playername :pars.getMap().getPlayerNames()){
-      HashMap<String,String> terrInfo = new  HashMap<String,String>();
-      terrInfo  = FogInfo.get(playername);
-      for (String terrName : pars.getMap().getTerritoryNames()) {
-        System.out.println(terrName);
-        System.out.println(terrInfo.get(terrName));
-      }
-    }
-    System.out.println("---------------------------");
-    
-    //Set the Nrefresh
-    for(String playername : pars.getMap().getPlayerNames()){
-      HashMap<String,String> terrInfo = new  HashMap<String,String>();
-      terrInfo  = FogInfo.get(playername);
-      for (String terrName : pars.getMap().getTerritoryNames()) {
-        if(terrInfo.get(terrName).equals("Refresh")){
-          terrInfo.replace(terrName, "Nrefresh");
-        }
-      }
-    }
-    //Set the Refresh
-    for(String playername : pars.getMap().getPlayerNames()){
-      for (String own : pars.getMap().getPlayerTerritoryStrings(playername)) {
-        FogInfo.get(playername).replace(own, "Refresh");
-        for (Territory neighbor : pars.getMap().getEnemyNeighbors(pars.getMap().getTerritory(own), playername) )   {
-          String neighName = neighbor.getTerritoryName();
-          FogInfo.get(playername).replace(neighName, "Refresh");
-        }
-        for(String temp : pars.getMap().getSpy(playername).getValidSpyLocation()){
-          FogInfo.get(playername).replace(temp, "Refresh");
-        }
-      }
-    }
         }
         locker.notifyAll();
         clearCount();
@@ -208,7 +168,6 @@ public class ServerHandler extends Thread {
       iniStage();
     }catch (Exception exp) {
       System.out.println("EXCEPTION INSIDE INIT STAGE: " + exp);
-      exp.printStackTrace();
     }
     
     
