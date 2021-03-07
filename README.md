@@ -5,7 +5,16 @@ Group 3 RISC Project
 
 * Evolution1 is inside Evolution1 directory 
 * Evolution2 is inside Evolution2 directory 
-* Evolution3 is inside Evolution3 directory 
+* Evolution3 is inside Evolution3 directory
+
+```
+Usage
+1.cd into the risc directory
+2.Setting up the hostmaster: gradle run-hostmaster
+3.Setting up the server: gradle run-server
+4.Setting up the client: gradle run-client
+5.Enjoy the game
+```
 
 Frontend Using Java Swing
 
