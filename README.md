@@ -29,7 +29,7 @@ The detailed requirements are inside the pdfs named by each evolution
 ## 3 player Map
 ![avatar](https://github.com/YisongZou/Risc-Game/blob/master/3%20players.png)
 ## 4 player Map
-![avatar](https://github.com/YisongZou/Risc-Game/blob/master/IMG_5956.JPG)
+![avatar](https://github.com/YisongZou/Risc-Game/blob/master/4%20players.png)
 ## 5 player Map
 ![avatar](https://github.com/YisongZou/Risc-Game/blob/master/IMG_5956.JPG)
 
