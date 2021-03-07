@@ -13,9 +13,9 @@ import edu.duke.ece651.hostmaster.*;
 public class App {
   public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
     // for debugging
-    debugStart();
+    //debugStart();
     // uncomment this for a normal start
-    // normalStart();
+     normalStart();
   }
 
 
